@@ -1,0 +1,25 @@
+{
+  "name": "cms-sample",
+  "version": "1.0.1",
+  "description": "CMS sample project",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rynguy/CMS-Sample.git"
+  },
+  "author": "Ryan Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rynguy/CMS-Sample/issues"
+  },
+  "homepage": "https://github.com/rynguy/CMS-Sample#readme",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.0",
+    "openssl": "^2.0.0"
+  }
+}
