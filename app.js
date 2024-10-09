@@ -9,10 +9,11 @@ const client = new MongoClient('mongodb+srv://cluster0.umt0a.mongodb.net/?authSo
     tlsCertificateKeyFile: credentials,
     serverApi: ServerApiVersion.v1
   });
-  /* check cert path
-  //const resolvedPath = path.resolve(credentials);
-  //console.log(`Resolved Certificate Path: ${resolvedPath}`);
-  */
+  /* //check cert path
+  const resolvedPath = path.resolve(credentials);
+  console.log(`Resolved Certificate Path: ${resolvedPath}`);
+*/
+
   async function run() {
     try {
       await client.connect();
@@ -22,15 +23,17 @@ const client = new MongoClient('mongodb+srv://cluster0.umt0a.mongodb.net/?authSo
       console.log(docCount);
       console.log("MongoDB Connected Successfully.");
       // perform actions using client
+    } catch (err) {
+      console.error("Database Connection failed. Error details:", err);
     } finally {
       // Ensures that the client will close when you finish/error
       await client.close();
     }
   }
  // run().catch(console.dir);
-    run().catch(err => {
-        console.log("Database Connection failed.");
-    })
+  //  run().catch(err => {
+   //     console.log("Database Connection failed.");
+  //  })
   
 
 const app = express();
@@ -49,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Routes */
 app.use('/',(req, res) => {   // '/'  indicates root folder of the page
-    res.send('Welcone to the CMS app');
+    res.send('Welcone to the CMS app3');
 });
 
 
@@ -58,5 +61,5 @@ app.listen(3000, ()=>{
     console.log(`Server is running on port 3000`)
 });
 run().catch(err => {
-    console.log("Connection Error");
+    console.log("Connection Error", err);
 })
